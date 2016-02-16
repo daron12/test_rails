@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_articles , only: [:show,:update,:destroy,:show]
+  before_action :set_articles , only: [:edit,:update,:destroy,:show]
   def index
     @articles = Article.all
   end
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_path 
   end
   private
-  def se_articles
+  def set_articles
     @article = Article.find(params[:id])
   end
   def articles_params
