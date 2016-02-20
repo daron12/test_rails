@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     end
   end
   def require_admin
-    if logged_in? and current_user.admin?
+    if logged_in? and !current_user.admin?
       flash[:danegr] = "Only for admin"
       redirect_to root_path
     end
