@@ -12,7 +12,9 @@
 						<%= time_ago_in_words(article.created_at) %> </small>
 				</div>
 			</div>
-
+			<% if article.categories.any? %>
+			<%= render article.categories %>
+			<% end %>
 			<div class="articles-actions">
 				<% if logged_in? && (current_user==article.user || current_user.admin? )%>
 				<%= link_to 'Edit article',edit_article_path(article),class:"btn btn-xs btn-primary" %>
